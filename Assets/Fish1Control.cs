@@ -19,8 +19,20 @@ public class Fish1Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hVel = Input.GetAxis("Horizontal");
-        vVel = Input.GetAxis("Vertical");
+        if (Input.GetKey(KeyCode.UpArrow)) {
+            vVel = 1;
+        } else if (Input.GetKey(KeyCode.DownArrow)) {
+            vVel = -1;
+        } else {
+            vVel = 0;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow)) {
+            hVel = -1;
+        } else if (Input.GetKey(KeyCode.RightArrow)) {
+            hVel = 1;
+        } else {
+            hVel = 0;
+        }
 
         Vector2 velocities = new Vector2(hVel * runSpeed, vVel * runSpeed);
         
