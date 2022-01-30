@@ -21,7 +21,9 @@ public class BirdScript : MonoBehaviour
     }
     
     void OnCollisionEnter2D(Collision2D collision) {
-        Destroy(collision.gameObject);
-        canvas.gameObject.SetActive(true);
+        if (collision.gameObject.name == "Circle") {
+            Destroy(collision.gameObject);
+            canvas.gameObject.SetActive(true);
+        }
     }
 }
