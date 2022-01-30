@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class BirdScript : MonoBehaviour
 {
-    public float amplitude = 5;
-    private float startX;
     private Rigidbody2D body;
     public Canvas canvas;
     
     // Start is called before the first frame update
     void Start()
     {
-    	startX = transform.position.x;
     	body = GetComponent<Rigidbody2D>();
     	canvas.gameObject.SetActive(false);
     }
