@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class BirdScript : MonoBehaviour
 {
-    public AudioSource source;
+    public float amplitutde = 5;
     // Start is called before the first frame update
     void Start()
     {
-        source = GetComponent<AudioSource>();
-        source.Play();
+
     }
 
     // Update is called once per frame
