@@ -10,7 +10,8 @@ public class Fish2Control : MonoBehaviour
     float vVel = 0;
 
     float runSpeed = 1;
-
+    public bool gameOver = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,9 @@ public class Fish2Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameOver) {
+            return;
+        }
         if (Input.GetKey(KeyCode.W)) {
             vVel = 1;
         } else if (Input.GetKey(KeyCode.S)) {

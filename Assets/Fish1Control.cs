@@ -7,6 +7,7 @@ public class Fish1Control : MonoBehaviour
     public Rigidbody2D body;
     float hVel = 0;
     float vVel = 0;
+    public bool gameOver = false;
 
     public float runSpeed;
 
@@ -19,6 +20,9 @@ public class Fish1Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameOver) {
+            return;
+        }
         if (Input.GetKey(KeyCode.UpArrow)) {
             vVel = 1;
         } else if (Input.GetKey(KeyCode.DownArrow)) {
