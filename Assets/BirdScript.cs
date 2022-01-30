@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class BirdScript : MonoBehaviour
 {
-    public float amplitutde = 5;
+    public float amplitude = 5;
+    private float startX;
+    private Rigidbody2D body;
+    public Canvas canvas;
+    
     // Start is called before the first frame update
     void Start()
     {
-
+    	startX = transform.position.x;
+    	body = GetComponent<Rigidbody2D>();
+    	canvas.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        body.velocity = new Vector3(2 * Mathf.Sin(Time.time), Mathf.Cos(Time.time * 2), 0);
+    }
+    
+    void OnCollisionEnter2D(Collision2D collision) {
+        Destroy(collision.gameObject);
+        canvas.gameObject.SetActive(true);
     }
 }
