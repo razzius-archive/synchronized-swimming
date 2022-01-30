@@ -18,8 +18,5 @@ public class Bubble : MonoBehaviour
     }
     
     void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.name == "PrizeFish1") {
-            collision.gameObject.transform.position = transform.position;
-        }
     }
 }

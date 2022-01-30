@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BirdScript : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class BirdScript : MonoBehaviour
     {
     	body = GetComponent<Rigidbody2D>();
     	canvas.gameObject.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class BirdScript : MonoBehaviour
             player1.gameOver = true;
             player2.gameOver = true;
             Destroy(collision.gameObject);
+            GameObject.Find("GameOverButton").GetComponentInChildren<Text>().text = "You were eaten by a hungry bird! Try again?";
             canvas.gameObject.SetActive(true);
             target = player1.gameObject;
         }
@@ -41,11 +44,15 @@ public class BirdScript : MonoBehaviour
 
         if (collision.gameObject.name == "RedFish") {
             Destroy(collision.gameObject);
-            target = player2.gameObject;
+            if (player2) {
+                target = player2.gameObject;
+            }
         }
         if (collision.gameObject.name == "BlueFish") {
             Destroy(collision.gameObject);
-            target = player1.gameObject;
+            if (player1) {
+                target = player1.gameObject;
+}
         }
     }
 }
