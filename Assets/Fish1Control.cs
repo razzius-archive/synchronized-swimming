@@ -8,7 +8,7 @@ public class Fish1Control : MonoBehaviour
     float hVel = 0;
     float vVel = 0;
 
-    float runSpeed = 1;
+    public float runSpeed;
 
     // Start is called before the first frame update
     void Start()
